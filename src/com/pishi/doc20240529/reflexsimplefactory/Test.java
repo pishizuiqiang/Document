@@ -1,7 +1,6 @@
-package com.pishi.reflexsimplefactory;
+package com.pishi.doc20240529.reflexsimplefactory;
 
-import com.pishi.simplefactory.SimpleFactory;
-import com.pishi.vo.JYMessageVo;
+import com.pishi.doc20240529.vo.JYMessageVo;
 
 /**
  * @author pishi

@@ -1,24 +1,25 @@
-package com.pishi.vo;
+package com.pishi.doc20240529.vo;
 
 /**
  * @author pishi
- * @description: 价格类型
+ * @description: 检验结果类型
  * @date 2022年07月16日 16:15
  */
-public class JGMessageVo extends MessageVo{
+public class JYMessageVo extends MessageVo{
 
     /**
      * 检验结果
      */
-    private Double price;
+    private Boolean judgeResult;
 
-    public Double getPrice() {
-        return price;
+    public Boolean getJudgeResult() {
+        return judgeResult;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setJudgeResult(Boolean judgeResult) {
+        this.judgeResult = judgeResult;
     }
+
 
     @Override
     public String toString() {
@@ -26,7 +27,7 @@ public class JGMessageVo extends MessageVo{
                 "uniqueKey='" + this.getUniqueKey() + '\'' +
                 ", sendTime=" + this.getSendTime() +
                 ", operateFlag='" + this.getOperateFlag() + '\'' +
-                ", price=" + this.getPrice() +
+                ", judgeResult=" + this.getJudgeResult() +
                 '}';
     }
 }

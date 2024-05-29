@@ -1,8 +1,8 @@
-package com.pishi.simplefactory;
+package com.pishi.doc20240529.simplefactory;
 
-import com.pishi.vo.JGMessageVo;
-import com.pishi.vo.JYMessageVo;
-import com.pishi.vo.MessageVo;
+import com.pishi.doc20240529.vo.JGMessageVo;
+import com.pishi.doc20240529.vo.JYMessageVo;
+import com.pishi.doc20240529.vo.MessageVo;
 
 import java.util.Date;
 import java.util.UUID;

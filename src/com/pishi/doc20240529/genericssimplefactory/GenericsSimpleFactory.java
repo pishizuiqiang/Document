@@ -1,24 +1,22 @@
-package com.pishi.reflexsimplefactory;
+package com.pishi.doc20240529.genericssimplefactory;
 
-import com.pishi.vo.JGMessageVo;
-import com.pishi.vo.JYMessageVo;
-import com.pishi.vo.MessageVo;
+import com.pishi.doc20240529.vo.MessageVo;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
 import java.util.UUID;
 
 /**
  * @author pishi
- * @description: 利用反射优化简单工厂
+ * @description: 利用泛型优化简单工厂
  * @date 2022年07月16日 16:35
  */
-public class ReflexSimpleFactory {
+public class GenericsSimpleFactory {
 
-    public static MessageVo createMessage(Class clazz){
-        MessageVo vo = null;
+    //利用范型 让调用时不必强转，且限定了 MessageVo才能使用此工厂
+    public static<T extends MessageVo> T  createMessage(Class<T> clazz){
+        T vo = null;
         try {
-            vo = (MessageVo)Class.forName(clazz.getName()).getDeclaredConstructor().newInstance();
+            vo = (T)Class.forName(clazz.getName()).getDeclaredConstructor().newInstance();
         } catch (Exception e) {
             e.printStackTrace();
         }
