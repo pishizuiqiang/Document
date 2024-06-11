@@ -16,6 +16,8 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
     public void addFormatters(FormatterRegistry registry) {
 
         registry.addConverter(new StringToLocalDateTime());
+        registry.addConverter(new StringToLocalDate());
+        registry.addConverter(new LocalDateToString());
     }
 
 

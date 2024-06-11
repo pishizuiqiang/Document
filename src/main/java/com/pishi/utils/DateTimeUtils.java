@@ -4,6 +4,7 @@ import cn.hutool.core.date.LocalDateTimeUtil;
 import org.apache.commons.lang3.time.DateUtils;
 
 import java.text.ParseException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Optional;
@@ -35,6 +36,15 @@ public class DateTimeUtils {
         return Optional.ofNullable(date)
                 .map(LocalDateTimeUtil::of)
                 .orElse(null);
+    }
+
+
+    public static LocalDate parseDate(String str) {
+
+
+        return LocalDateTimeUtil.parseDate(str);
+
+
     }
 
 
