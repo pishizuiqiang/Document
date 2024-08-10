@@ -43,20 +43,45 @@ class AnalysisServiceTest {
             analysisServiceList.forEach(service -> {
                 if (service.support().equals(v)) {
 
-                    //获取接口类型实例对象
-                    final ParameterizedType analysisService = ClassUtils.getParameterizedTypeByClassName(service.getClass(), "AnalysisService");
-
-                    //获取泛型类型实例对象
-                    final Type actualTypeArgument = analysisService.getActualTypeArguments()[0];
-
-                    //将字符串转换成泛型类型实例对象
-                    final Object analysis = conversionService.convert(k, (Class<? extends Object>) actualTypeArgument);
-
-                    log.info("analysis = {},\t\ttype={}", analysis, analysis.getClass());
+                    // 方案1, 通过实现类手动转换
+                    implConvert(k, service);
+                    // 方案2, 通过工具类反射转换
+                    utilConvert(k, service);
                 }
 
             });
 
         });
+    }
+
+    /**
+     * 通过反射转换
+     *
+     * @param k
+     * @param service
+     */
+    private void utilConvert(String k, AnalysisService service) {
+        //获取接口类型实例对象
+        final ParameterizedType analysisService = ClassUtils.getParameterizedTypeByClassName(service.getClass(), "AnalysisService");
+
+        //获取泛型类型实例对象
+        final Type actualTypeArgument = analysisService.getActualTypeArguments()[0];
+
+        //将字符串转换成泛型类型实例对象
+        final Object analysis = conversionService.convert(k, (Class<? extends Object>) actualTypeArgument);
+
+        log.info("analysis = {},\t\ttype={}", analysis, analysis.getClass());
+    }
+
+    /**
+     * 通过实现类手动转换
+     *
+     * @param k
+     * @param service
+     */
+    private void implConvert(String k, AnalysisService service) {
+        final Object analysis = service.analysis(k);
+
+        log.info("analysis = {},\t\ttype={}", analysis, analysis.getClass());
     }
 }
