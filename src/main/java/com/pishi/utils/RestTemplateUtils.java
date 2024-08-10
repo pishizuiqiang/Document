@@ -15,7 +15,7 @@ import java.util.Optional;
 public class RestTemplateUtils {
 
 
-    private static final String URL = "http://iron.bxgt.com/module/analysis/";
+    private static final String URL = "http://xxxx/module/analysis/";
 
 
     /**
