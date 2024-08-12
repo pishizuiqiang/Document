@@ -15,10 +15,14 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
     @Override
     public void addFormatters(FormatterRegistry registry) {
 
+        registry.addConverter(new StringToLong());
         registry.addConverter(new StringToLocalDateTime());
         registry.addConverter(new StringToLocalDate());
         registry.addConverter(new LocalDateToString());
+        registry.addConverter(new LongToLocalDateTime());
     }
+
+
 
 
 }
